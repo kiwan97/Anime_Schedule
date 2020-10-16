@@ -1,4 +1,4 @@
-package com.example.kiwankim.myapplication3;
+package com.kiwankim.kiwankim.kiwankim;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -13,9 +13,12 @@ public class MyAdapter extends BaseAdapter {
     Context mContext = null;
     LayoutInflater mLayoutInflater = null;
     ArrayList<String> sample;
-    public MyAdapter(Context context, ArrayList<String> data) {
+    ArrayList<String> sample2;
+    public MyAdapter(Context context, ArrayList<String> data,ArrayList<String> data2) {
         mContext = context;
         sample = data;
+        sample2 = data2;
+
         mLayoutInflater = LayoutInflater.from(mContext);
     }
 
@@ -42,6 +45,7 @@ public class MyAdapter extends BaseAdapter {
         textview.setText(sample.get(position));
 
         textview = view.findViewById(R.id.time_item);
+        textview.setText(sample2.get(position).substring(0,2) +":"+sample2.get(position).substring(2,4));
         //여기 부터textview.setText()
         return view;
     }

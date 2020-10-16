@@ -1,22 +1,15 @@
-package com.example.kiwankim.myapplication3;
+package com.kiwankim.kiwankim.kiwankim;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Html;
-import android.text.Layout;
-import android.text.SpannableStringBuilder;
 import android.text.method.LinkMovementMethod;
-import android.text.style.ClickableSpan;
-import android.text.style.URLSpan;
+import android.text.util.Linkify;
 import android.view.Gravity;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -35,6 +28,7 @@ public class DetailInfo extends AppCompatActivity {
     TextView release_date;
     TextView address;
     TextView writer;
+    TextView line;
     Context context;
     LinearLayout Layout;
     private String Json;
@@ -54,7 +48,6 @@ public class DetailInfo extends AppCompatActivity {
         Detail_site = findViewById(R.id.detail_site);
         start_date = findViewById(R.id.start_date);
         end_date = findViewById(R.id.end_date);
-
 
         Intent intent = getIntent();
 
@@ -87,6 +80,7 @@ public class DetailInfo extends AppCompatActivity {
                 episode.setText(fixEpisode(jsonObject.getString("s")));
                 release_date.setText(fixUpdateDate(jsonObject.getString("d")));
                 address.setText(jsonObject.getString("a"));
+                Linkify.addLinks(address, Linkify.WEB_URLS);
                 writer.setText(jsonObject.getString("n"));
                 addTolayout();
             }
@@ -126,7 +120,6 @@ public class DetailInfo extends AppCompatActivity {
         Layout.addView(episode);
         Layout.addView(release_date);
         Layout.addView(address);
-
     }
     public String fixEpisode(String s){
         if(s=="BD" || s=="EX"|| s=="PIC"|| s=="OVA"|| s=="OAD") return s;

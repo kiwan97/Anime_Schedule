@@ -33,6 +33,7 @@
             android:layout_height="wrap_content"
             android:text="detail_site"
             android:id="@+id/detail_site"
+            android:autoLink="web"
             android:textSize="10pt"/>
         <TextView
             android:layout_width="match_parent"

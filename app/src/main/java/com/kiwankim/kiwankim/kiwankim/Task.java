@@ -1,4 +1,4 @@
-package com.example.kiwankim.myapplication3;
+package com.kiwankim.kiwankim.kiwankim;
 
 import android.os.AsyncTask;
 import android.util.Log;

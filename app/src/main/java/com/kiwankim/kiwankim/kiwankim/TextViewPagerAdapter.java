@@ -1,6 +1,5 @@
-package com.example.kiwankim.myapplication3;
+package com.kiwankim.kiwankim.kiwankim;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -19,13 +18,15 @@ public class TextViewPagerAdapter extends PagerAdapter {
         // LayoutInflater 서비스 사용을 위한 Context 참조 저장.
         private Context mContext = null ;
         private ArrayList<ArrayList<String>> anime_titles;
+        private ArrayList<ArrayList<String>> anime_times;
         private String Json;
         String WeekDay2[] = {"SUN","MON","TUE","WED","THR","FRI","SAT"};
 
         // Context를 전달받아 mContext에 저장하는 생성자 추가.
-        public TextViewPagerAdapter(Context context,ArrayList<ArrayList<String> > titles,String Json) {
+        public TextViewPagerAdapter(Context context,ArrayList<ArrayList<String> > titles,ArrayList<ArrayList<String> > times, String Json) {
             mContext = context ;
             anime_titles = titles;
+            anime_times = times;
             this.Json = Json;
         }
 
@@ -40,7 +41,7 @@ public class TextViewPagerAdapter extends PagerAdapter {
                 view = inflater.inflate(R.layout.view_page, container, false);
 
                 listView = view.findViewById(R.id.listView);
-                listView.setAdapter(new MyAdapter(mContext,anime_titles.get(pos)));
+                listView.setAdapter(new MyAdapter(mContext,anime_titles.get(pos),anime_times.get(pos)));
                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {

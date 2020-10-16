@@ -1,4 +1,4 @@
-package com.example.kiwankim.myapplication3;
+package com.kiwankim.kiwankim.kiwankim;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
